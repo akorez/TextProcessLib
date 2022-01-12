@@ -78,7 +78,7 @@ namespace TextProcessLib.Concrete
         {
             if (string.IsNullOrEmpty(text) || n == 0)
             {
-                return Array.Empty<IWordFrequency>();
+                return Array.Empty<IWordFrequency>(); // or return Null
             }
 
             var result = TextProcess(text)
@@ -90,18 +90,23 @@ namespace TextProcessLib.Concrete
 
             if (result != null)
             {
-                return result.ToList<IWordFrequency>();
+                return result.ToList<IWordFrequency>(); 
             }
             else
             {
-                return Array.Empty<IWordFrequency>();
+                return Array.Empty<IWordFrequency>(); // or return Null
             }
 
         }
 
+        /// <summary>
+        /// It is a common method. Used in 3 methods and used for text processing.
+        /// </summary>
+        /// <param name="text">Sample Text</param>
+        /// <returns>Processed Text</returns>
         private static IEnumerable<IGrouping<string, string>> TextProcess(string text)
         {
-            return string.Concat(text.Select(x => ((x < 65 || x > 90) && (x < 97 || x > 122) && x != 32) ? ' ' : x))
+            return string.Concat(text.Select(x => ((x < 65 || x > 90) && (x < 97 || x > 122) && x != 32) ? ' ' : x)) // Only a-z or A-Z characters are taken into account
                             .Split(' ')
                             .Where(x => !String.IsNullOrWhiteSpace(x))
                             .GroupBy(x => x, StringComparer.InvariantCultureIgnoreCase);
