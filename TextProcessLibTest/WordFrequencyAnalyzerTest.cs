@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TextProcessLib.Abstract;
 using TextProcessLib.Concrete;
+using System.Linq;
 using Xunit;
 
 namespace TextProcessingLibraryTest
@@ -128,6 +129,7 @@ namespace TextProcessingLibraryTest
 
             var actualResult = _wordFrequencyAnalyzer.CalculateMostFrequentNWords(text, n);
 
+            Assert.True(actualResult.SequenceEqual(expectedResult));
 
         }
 

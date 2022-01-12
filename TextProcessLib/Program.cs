@@ -8,8 +8,6 @@ namespace TextProcessLib
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            var list1 = new IList<IWordFrequency> { }
         }
     }
 }
