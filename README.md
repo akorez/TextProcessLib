@@ -13,7 +13,7 @@ The test scenarios of these 3 methods are also included under the Test project.
 [Test Coverage](https://github.com/akorez/TextProcessLib/actions/runs/8914373902)
 
 
-[![.NET](https://github.com/akorez/TextProcessLib/actions/workflows/tests.yml/badge.svg)](https://github.com/akorez/TextProcessLib/actions/workflows/tests.yml)
+[![.NET](https://github.com/akorez/TextProcessLib/actions/workflows/tests.yml/badge.svg)](https://github.com/akorez/TextProcessLib/actions/workflows/tests.yml) [![.NET](https://github.com/akorez/TextProcessLib/actions/workflows/tests.yml/badge.svg)](https://github.com/akorez/TextProcessLib/actions/workflows/tests.yml)
 
 
 
