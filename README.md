@@ -10,4 +10,7 @@ The library contains 3 methods. These:
 
 The test scenarios of these 3 methods are also included under the Test project.
 
-https://github.com/akorez/TextProcessLib/actions/runs/8914373902/attempts/1#summary-24481831621
+[Test Coverage](https://github.com/akorez/TextProcessLib/actions/runs/8914373902)
+
+
+
