@@ -26,6 +26,14 @@ namespace TextProcessingLibraryTest
             Assert.Equal(0, actualResult);
         }
 
+        [Theory]
+        [InlineData("I am from Turkey,I'm a C# .Net Developer. I like playing basketball!")]
+        public void InputTextValueNotNullorEmpty_CalculateHighestFrequency_ReturnIntegerValue(string text)
+        {
+            var actualResult = _wordFrequencyAnalyzer.CalculateHighestFrequency(text);
+
+            Assert.Equal(3, actualResult); // Threee times "I" word 
+        }
 
         [Theory]
         [InlineData("?!!!=0  @--***    ..,")]
