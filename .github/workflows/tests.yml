@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-
+    
     runs-on: windows-latest
 
     steps:
@@ -33,6 +33,7 @@ jobs:
   test-coverage:
 
     runs-on: ubuntu-latest
+    needs : [build]
 
     steps:
 
