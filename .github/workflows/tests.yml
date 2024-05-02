@@ -9,9 +9,7 @@ on:
 
 jobs:
   build:
-    
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     
@@ -26,21 +24,31 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
       
-    # Add coverlet.collector nuget package to test project - 'dotnet add <TestProject.cspoj> package coverlet
     - name: Test
       run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
-  
+
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-report
+        path: coverage/**/coverage.cobertura.xml
+
   test-coverage:
-
     runs-on: ubuntu-latest
-    needs : [build]
-
+    needs: build
     steps:
+    - uses: actions/checkout@v3
+
+    - name: Download coverage report
+      uses: actions/download-artifact@v3
+      with:
+        name: coverage-report
+        path: coverage
 
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
-        filename: 'coverage/*/coverage.cobertura.xml'
+        filename: 'coverage/coverage.cobertura.xml'
         badge: true
         format: 'markdown'
         output: 'both'
@@ -54,4 +62,3 @@ jobs:
 
     - name: Write to Job Summary
       run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
-
