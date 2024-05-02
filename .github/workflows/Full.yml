@@ -30,7 +30,7 @@ jobs:
       run: dotnet build --no-restore
       
     - name: Test
-      run: dotnet test TextProcessLibTest\TextProcessLib.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
+      run: dotnet test TextProcessLibTest\TextProcessLibTest.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
 
     - name: Upload coverage report
       uses: actions/upload-artifact@v3
