@@ -5,7 +5,11 @@ on:
     workflows: ["Tests"] 
     types:
       - completed
-
+      
+permissions:
+  contents: read
+  actions: read
+  
 jobs:
   test-coverage:
     runs-on: ubuntu-latest
