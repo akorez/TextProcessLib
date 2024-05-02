@@ -13,10 +13,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Remove old artifacts
-      uses: c-hive/gha-remove-artifacts@v1
+    - name: Remove Coverage folder
+      uses: JesseTG/rm@v1.0.3
       with:
-        age: '30 seconds'
+         path: /github/workspace/coverage/
     
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
