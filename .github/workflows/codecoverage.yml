@@ -17,10 +17,9 @@ jobs:
     steps:
     
     - name: Download coverage report
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: coverage-report
-        path: coverage
 
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
