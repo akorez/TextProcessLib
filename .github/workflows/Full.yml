@@ -8,6 +8,28 @@ on:
   workflow_dispatch:
 
 jobs:
+  cleanup-artifact:
+    runs-on: ubuntu-latest
+    needs: test-coverage
+    if: always()
+    steps:
+      - name: Delete artifact
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ARTIFACT_NAME="coverage-report"
+          REPO_OWNER="${{ github.repository_owner }}"
+          REPO_NAME="${{ github.event.repository.name }}"
+          WORKFLOW_RUN_ID="${{ github.run_id }}"
+          ARTIFACTS_URL="https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runs/$WORKFLOW_RUN_ID/artifacts"
+          ARTIFACT_ID=$(curl -H "Authorization: token $GITHUB_TOKEN" $ARTIFACTS_URL | jq --arg NAME "$ARTIFACT_NAME" '.artifacts[] | select(.name==$NAME) | .id')
+          if [ "$ARTIFACT_ID" != "" ]; then
+            DELETE_URL="https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/artifacts/$ARTIFACT_ID"
+            curl -X DELETE -H "Authorization: token $GITHUB_TOKEN" $DELETE_URL
+          else
+            echo "Artifact $ARTIFACT_NAME not found"
+          fi
+
   build:
     runs-on: windows-latest
     steps:
