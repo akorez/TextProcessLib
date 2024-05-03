@@ -1,4 +1,4 @@
-gname: Test and CoverageV2
+name: Test and CoverageV2
 
 on:
   push:
