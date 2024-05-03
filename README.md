@@ -1,3 +1,4 @@
+[Test Coverage](https://github.com/akorez/TextProcessLib/blob/master/coveragereport/SummaryGithub.md)
 # TextProcessLib
 This repo contains a sample library code and test methods that calculate the frequency of the words in the given text on a word-by-word basis.
 
@@ -10,7 +11,7 @@ The library contains 3 methods. These:
 
 The test scenarios of these 3 methods are also included under the Test project.
 
-[Test Coverage](https://github.com/akorez/TextProcessLib/tree/master/coveragereport)
+
 
 
 
