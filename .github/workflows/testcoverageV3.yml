@@ -38,13 +38,13 @@ jobs:
     - name: Merge coverage reports
       run: |
         dotnet tool install -g dotnet-reportgenerator-globaltool
-        reportgenerator "-reports:D:\a\TextProcessLib\TextProcessLib\TextProcessLibTest\TestResults\Test1Coverage\coverage.opencover.xml;D:\a\TextProcessLib\TextProcessLib\TextProcessLibTest2\TestResults\Test2Coverage\coverage.opencover.xml" "-targetdir:TestResults/Merged" -reporttypes:OpenCover
+        reportgenerator "-reports:D:\a\TextProcessLib\TextProcessLib\TextProcessLibTest\TestResults\Test1Coverage\coverage.opencover.xml;D:\a\TextProcessLib\TextProcessLib\TextProcessLibTest2\TestResults\Test2Coverage\coverage.opencover.xml" "-targetdir:D:\a\TextProcessLib\TextProcessLib\TestResults\Merged" -reporttypes:OpenCover
      
     - name: Upload coverage report
       uses: actions/upload-artifact@v3
       with:
         name: coverage-report
-        path: D:\a\TextProcessLib\TextProcessLib\TestResults\Merged
+        path: D:\a\TextProcessLib\TextProcessLib\TestResults\Merged\coverage.opencover.xml
         
   test-coverage:
     runs-on: ubuntu-latest
