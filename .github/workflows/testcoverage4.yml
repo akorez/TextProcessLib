@@ -54,7 +54,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Download coverage report
+    - name: Download coverage report for Test1
       uses: actions/download-artifact@v3
       with:
         name: coverage-report1
@@ -75,13 +75,7 @@ jobs:
         recreate: true
         path: code-coverage-results.md
 		
-  test2-coverage:
-    runs-on: ubuntu-latest
-    needs: test1-coverage
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Download coverage report
+    - name: Download coverage report fort Test2
       uses: actions/download-artifact@v3
       with:
         name: coverage-report2
