@@ -25,13 +25,22 @@ jobs:
       run: dotnet build --no-restore
 
     - name: Test
-      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
+      run: dotnet test TextProcessLibTest\TextProcessLibTest.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage\test1
+      
+    - name: Test
+      run: dotnet test TextProcessLibTest2\TextProcessLibTest2.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage\test2
 
-    - name: Upload coverage report
+    - name: Upload coverage report1
       uses: actions/upload-artifact@v3
       with:
-        name: coverage-report
-        path: coverage/**/coverage.cobertura.xml
+        name: coverage-report1
+        path: coverage/test1/coverage.cobertura.xml
+        
+    - name: Upload coverage report2
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-report2
+        path: coverage/test2/coverage.cobertura.xml
 
   test-coverage:
     runs-on: ubuntu-latest
