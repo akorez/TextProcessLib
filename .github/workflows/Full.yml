@@ -52,12 +52,12 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: coverage-report1
-        path: coverage
+        path: coverage1
 
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
-        filename: 'coverage/test1/**/coverage.cobertura.xml'
+        filename: 'coverage1/**/coverage.cobertura.xml'
         badge: true
         format: 'markdown'
         output: 'both'
@@ -82,12 +82,12 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: coverage-report2
-        path: coverage
+        path: coverage2
 
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
-        filename: 'coverage/test2/**/coverage.cobertura.xml'
+        filename: 'coverage2/**/coverage.cobertura.xml'
         badge: true
         format: 'markdown'
         output: 'both'
