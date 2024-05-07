@@ -51,7 +51,7 @@ jobs:
     - name: Download coverage report
       uses: actions/download-artifact@v3
       with:
-        name: coverage-report
+        name: coverage-report1
         path: coverage
 
     - name: Code Coverage Summary Report
@@ -81,7 +81,7 @@ jobs:
     - name: Download coverage report
       uses: actions/download-artifact@v3
       with:
-        name: coverage-report
+        name: coverage-report2
         path: coverage
 
     - name: Code Coverage Summary Report
