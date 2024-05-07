@@ -34,13 +34,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: coverage-report1
-        path: coverage/test1/coverage.cobertura.xml
+        path: coverage/test1/**/coverage.cobertura.xml
         
     - name: Upload coverage report2
       uses: actions/upload-artifact@v3
       with:
         name: coverage-report2
-        path: coverage/test2/coverage.cobertura.xml
+        path: coverage/test2/**/coverage.cobertura.xml
 
   test-coverage:
     runs-on: ubuntu-latest
