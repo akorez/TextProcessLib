@@ -25,7 +25,7 @@ jobs:
       run: dotnet build --no-restore
 
     - name: Test
-      run: dotnet test TextProcessLibTest/TextProcessLibTest.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory coverage/test1 --hide_branch_rate true --hide_complexity true
+      run: dotnet test TextProcessLibTest/TextProcessLibTest.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory coverage/test1
       
     - name: Test
       run: dotnet test TextProcessLibTest2/TextProcessLibTest2.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory coverage/test2
@@ -61,6 +61,8 @@ jobs:
         badge: true
         format: 'markdown'
         output: 'both'
+        hide_branch_rate: true
+        hide_complexity: true        
 
     - name: Add Coverage PR Comment
       uses: marocchino/sticky-pull-request-comment@v2
