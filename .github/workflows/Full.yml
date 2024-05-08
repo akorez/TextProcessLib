@@ -25,7 +25,7 @@ jobs:
       run: dotnet build --no-restore
 
     - name: Test
-      run: dotnet test TextProcessLibTest/TextProcessLibTest.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory coverage/test1
+      run: dotnet test TextProcessLibTest/TextProcessLibTest.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory coverage/test1 --hide_branch_rate true --hide_complexity true
       
     - name: Test
       run: dotnet test TextProcessLibTest2/TextProcessLibTest2.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory coverage/test2
